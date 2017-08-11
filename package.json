@@ -40,7 +40,6 @@
     "test": "jest"
   },
   "eslintConfig": {
-    "extends": "xo-space",
     "env": {
       "jest": true,
       "node": true

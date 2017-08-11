@@ -1,4 +1,5 @@
 import React from 'react';
+import './<%= name %>.css';
 import PropTypes from 'prop-types';
 import ClassName from 'classnames';
 
