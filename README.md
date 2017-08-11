@@ -1,6 +1,15 @@
-# generator-react-feature [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
-> 
+# generator-react-feature [![NPM version][npm-image]][npm-url] 
 
+## TL;DR
+Generates an opinionated structure for React features
+```
+- featurePath
+-- MyFeature
+--- MyFeature.js
+--- MyFeature.test.js
+--- MyFeature.scss
+--- MyFeature.stories.js // optional
+```
 ## Installation
 
 First, install [Yeoman](http://yeoman.io) and generator-react-feature using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).

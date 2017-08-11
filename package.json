@@ -1,7 +1,7 @@
 {
   "name": "generator-react-feature",
   "version": "0.0.0",
-  "description": "",
+  "description": "Generate an opinionated structure for React features",
   "homepage": "",
   "author": {
     "name": "Jason Kinnear",
