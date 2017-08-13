@@ -25,11 +25,19 @@ module.exports = class extends Generator {
 		let path = this.config.get('featurePath');
 
 		if (!path) {
+			// prompts.push({
+			// 	type: 'input',
+			// 	name: 'featurePath',
+			// 	message: 'Where would you like to keep your features?',
+			// 	default: './src/features/'
+			// })
+			throw new Error('No paths set in your .yo-rc.json');
+		} else {
 			prompts.push({
-				type: 'input',
+				type: 'list',
 				name: 'featurePath',
 				message: 'Where would you like to keep your features?',
-				default: './src/features/'
+				choices: path
 			})
 		}
 
@@ -56,12 +64,12 @@ module.exports = class extends Generator {
 
 	writing() {
 
-		if (this.props.featurePath) {
-			this.config.set('featurePath', this.props.featurePath)
+		if (!this.config.get('featurePath') && this.props.featurePath) {
+			this.config.set('featurePath', [this.props.featurePath])
 		}
 
 		let name = this.options.featureName;
-		let path = this.config.get('featurePath') + name + '/';
+		let path = this.props.featurePath + name + '/';
 		let config = {
 			name: name
 		};
