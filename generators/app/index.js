@@ -34,12 +34,12 @@ module.exports = class extends Generator {
 		}
 
 		if (!this.options.all) {
-			// prompts.push({
-			// 	type: 'confirm',
-			// 	name: 'isClass',
-			// 	message: 'Will your component have state?',
-			// 	default: false,
-			// });
+			prompts.push({
+				type: 'confirm',
+				name: 'isClass',
+				message: 'Will your component have state?',
+				default: false,
+			});
 			prompts.push({
 				type: 'confirm',
 				name: 'hasStories',
@@ -67,11 +67,19 @@ module.exports = class extends Generator {
 		};
 
 
-		this.fs.copyTpl(
-			this.templatePath('component.js'),
-			this.destinationPath(path + name + '.js'),
-			config
-		);
+		if (this.props.isClass) {
+			this.fs.copyTpl(
+				this.templatePath('classComponent.js'),
+				this.destinationPath(path + name + '.js'),
+				config
+			);
+		} else {
+			this.fs.copyTpl(
+				this.templatePath('component.js'),
+				this.destinationPath(path + name + '.js'),
+				config
+			);
+		}
 
 		this.fs.copyTpl(
 			this.templatePath('component.scss'),

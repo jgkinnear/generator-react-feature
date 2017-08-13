@@ -25,6 +25,11 @@ Then generate your new project:
 yo react-feature
 ```
 
+## Usage
+```
+yo react-feature <name>
+```
+
 ## Getting To Know Yeoman
 
  * Yeoman has a heart of gold.
