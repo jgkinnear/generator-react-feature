@@ -2,8 +2,15 @@
 const Generator = require('yeoman-generator');
 const chalk = require('chalk');
 const yosay = require('yosay');
-
 module.exports = class extends Generator {
+
+	getTemplate(path) {
+		if (this.fs.exists(this.destinationPath('.react-feature/' + path))) {
+			return this.destinationPath('.react-feature/' + path);
+		} else {
+			return this.templatePath(path);
+		}
+	}
 
 	constructor(args, opts) {
 		super(args, opts);
@@ -77,33 +84,33 @@ module.exports = class extends Generator {
 
 		if (this.props.isClass) {
 			this.fs.copyTpl(
-				this.templatePath('classComponent.js'),
+				this.getTemplate('classComponent.js'),
 				this.destinationPath(path + name + '.js'),
 				config
 			);
 		} else {
 			this.fs.copyTpl(
-				this.templatePath('component.js'),
+				this.getTemplate('component.js'),
 				this.destinationPath(path + name + '.js'),
 				config
 			);
 		}
 
 		this.fs.copyTpl(
-			this.templatePath('component.scss'),
+			this.getTemplate('component.scss'),
 			this.destinationPath(path + name + '.scss'),
 			config
 		);
 
 		this.fs.copyTpl(
-			this.templatePath('component.test.js'),
+			this.getTemplate('component.test.js'),
 			this.destinationPath(path + name + '.test.js'),
 			config
 		);
 
 		if (this.props.hasStories || this.options.all) {
 			this.fs.copyTpl(
-				this.templatePath('component.stories.js'),
+				this.getTemplate('component.stories.js'),
 				this.destinationPath(path + name + '.stories.js'),
 				config
 			);
