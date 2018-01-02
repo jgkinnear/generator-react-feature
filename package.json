@@ -36,7 +36,6 @@
     "testEnvironment": "node"
   },
   "scripts": {
-    "test": "jest",
     "release": "np"
   },
   "eslintConfig": {
